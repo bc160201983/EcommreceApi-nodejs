@@ -5,12 +5,16 @@ const dotenv = require("dotenv");
 const userRoute = require("./routers/user");
 const authRoute = require("./routers/auth");
 const productRoute = require("./routers/product");
+const orderRoute = require("./routers/order");
+const cartRoute = require("./routers/cart");
 
 dotenv.config();
 app.use(express.json());
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
 app.use("/api/products", productRoute);
+app.use("/api/orders", orderRoute);
+app.use("/api/cart", cartRoute);
 
 mongoose
   .connect(process.env.MONGO_URI)
